@@ -1,137 +1,110 @@
-Gestión Médica
-Sistema web para la gestión de pacientes, citas y médicos, con frontend en React + TailwindCSS, backend en Node.js + Express, y base de datos en SQL Server 2019.
+==================================================
+          SISTEMA DE GESTIÓN MÉDICA
+==================================================
 
-Características principales
-Gestión de pacientes (alta, edición, detalle).
+Un sistema web para administrar PACIENTES, MÉDICOS
+y CITAS médicas, diseñado con un enfoque moderno 
+y responsive. Este proyecto integra:
 
-Gestión de médicos con sus especialidades.
+  - FRONTEND: React + TailwindCSS
+  - BACKEND: Node.js + Express
+  - BASE DE DATOS: SQL Server 2019
+  - API REST: Comunicación entre frontend y backend
 
-Agendamiento de citas con validación de horarios.
+--------------------------------------------------
+FUNCIONALIDADES DESTACADAS
+--------------------------------------------------
+✔ Registro y edición de pacientes.  
+✔ Gestión de médicos y especialidades.  
+✔ Agendamiento de citas con validación de horarios.  
+✔ Listado de citas (futuras, pasadas y del día).  
+✔ Interfaz moderna y optimizada para móviles.  
 
-API REST en Node.js + Express conectada a SQL Server 2019.
+--------------------------------------------------
+TECNOLOGÍAS UTILIZADAS
+--------------------------------------------------
+FRONTEND:
+  - React (con Vite)
+  - React Router DOM
+  - Tailwind CSS
+  - Heroicons
 
-Frontend moderno y responsive con React + TailwindCSS.
+BACKEND:
+  - Node.js + Express
+  - mssql (conexión a SQL Server)
+  - dotenv (manejo de variables de entorno)
+  - cors (para comunicación segura entre front y back)
 
-Integración con React Router para manejo de páginas.
+BASE DE DATOS:
+  - SQL Server 2019
+  - Tablas: Pacientes, Médicos, Citas
 
-Tecnologías utilizadas
-Frontend
-React.js (con Vite)
-
-Tailwind CSS
-
-React Router DOM
-
-Heroicons
-
-Fetch API para consumir endpoints del backend
-
-Backend
-Node.js + Express
-
-mssql (conexión a SQL Server)
-
-dotenv (para variables de entorno)
-
-cors (para habilitar comunicación con el frontend)
-
-Base de datos
-SQL Server 2019
-Tablas: Pacientes, Medicos, Citas (con relaciones y validaciones).
-
+--------------------------------------------------
+ESTRUCTURA DEL PROYECTO
+--------------------------------------------------
 gestion-medica/
 │
 ├── backend/
-│   ├── server.js          # Servidor Express con conexión a SQL Server
-│   ├── .env               # Variables de entorno (credenciales DB)
+│   ├── server.js          (Servidor Express)
+│   ├── .env               (Variables de entorno)
 │   └── package.json
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx        # Rutas principales
-│   │   ├── api/Api.js     # Funciones para llamadas al backend
-│   │   ├── components/    # Navbar, formularios, etc.
-│   │   ├── pages/         # Home, Pacientes, Citas, Médicos
-│   │   ├── styles/        # CSS global y Tailwind
-│   │   └── main.jsx       # Punto de entrada React
-│   ├── tailwind.config.js # Configuración de Tailwind
+│   │   ├── App.jsx        (Rutas principales)
+│   │   ├── api/Api.js     (Funciones API)
+│   │   ├── components/    (Navbar, formularios)
+│   │   ├── pages/         (Home, Pacientes, Citas)
+│   │   └── main.jsx       (Punto de entrada React)
+│   ├── tailwind.config.js
 │   ├── postcss.config.js
 │   └── package.json
 │
-└── medical_db_schema.sql  # Script SQL para crear las tablas
+└── medical_db_schema.sql  (Script SQL de tablas)
 
+--------------------------------------------------
+CÓMO EJECUTAR EL PROYECTO
+--------------------------------------------------
+1. Clona el repositorio:
+   git clone https://github.com/tu-usuario/gestion-medica.git
+   cd gestion-medica
 
-Instalación
-1. Clonar el repositorio
-bash
-Copiar
-Editar
-git clone https://github.com/tu-usuario/gestion-medica.git
-cd gestion-medica
-2. Backend
-Entrar a la carpeta backend:
+2. Configura el BACKEND:
+   cd backend
+   npm install
+   Crea un archivo .env con tus credenciales de SQL Server:
+     DB_USER=Medical
+     DB_PASSWORD=Medical
+     DB_SERVER=localhost
+     DB_NAME=Medical
+     DB_PORT=1433
+   Levanta el servidor:
+     npm start
+   El backend estará en: http://localhost:4000
 
-bash
-Copiar
-Editar
-cd backend
-npm install
-Crear el archivo .env con tus credenciales de SQL Server:
+3. Configura el FRONTEND:
+   cd ../frontend
+   npm install
+   Inicia el proyecto:
+     npm run dev
+   El frontend estará en: http://localhost:5173
 
-ini
-Copiar
-Editar
-DB_USER=Medical
-DB_PASSWORD=Medical
-DB_SERVER=localhost
-DB_NAME=Medical
-DB_PORT=1433
-Ejecutar el servidor:
+4. BASE DE DATOS:
+   Ejecuta el script medical_db_schema.sql en tu SQL Server.
 
-bash
-Copiar
-Editar
-npm start
-El backend correrá en http://localhost:4000.
+--------------------------------------------------
+PRÓXIMAS MEJORAS
+--------------------------------------------------
+- Autenticación con JWT y roles (Admin, Doctor, Usuario).  
+- Dashboard con estadísticas y reportes.  
+- Envío de notificaciones para citas.  
+- Validación avanzada de formularios.
 
-3. Frontend
-Entrar a la carpeta frontend:
+--------------------------------------------------
+AUTOR
+--------------------------------------------------
+Oscar Gómez
+Desarrollador de software orientado a aplicaciones
+web y desktop con tecnologías modernas.
 
-bash
-Copiar
-Editar
-cd ../frontend
-npm install
-Correr el frontend (Vite):
-
-bash
-Copiar
-Editar
-npm run dev
-La app estará disponible en http://localhost:5173.
-
-4. Base de datos
-Ejecutar el script medical_db_schema.sql en SQL Server Management Studio para crear las tablas necesarias.
-
-Comandos útiles
-Levantar backend: cd backend && npm start
-
-Levantar frontend: cd frontend && npm run dev
-
-Compilar frontend para producción: npm run build (en la carpeta frontend).
-
-Próximas mejoras
-Autenticación con JWT y roles (Admin, Doctor, Usuario).
-
-Panel de estadísticas con gráficos.
-
-Notificaciones por correo para citas.
-
-Validación avanzada de formularios.
-
-Autor
-Daniel Gómez
-Desarrollador de software orientado a aplicaciones web y desktop.
-
-
-
+==================================================
